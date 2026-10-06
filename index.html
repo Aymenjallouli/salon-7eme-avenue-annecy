@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salon 7ème avenue, coiffeur mixte à Annecy</title>
+<meta name="description" content="Salon 7ème avenue, coiffeur mixte au 9 avenue du Rhône à Annecy : coupe aux ciseaux, couleur L’Oréal ou végétale, balayage, barbe. Ouvert le dimanche.">
+<meta property="og:title" content="Salon 7ème avenue, coiffeur mixte à Annecy">
+<meta property="og:description" content="Coupe aux ciseaux, couleur L’Oréal ou végétale, balayage et barbe au 9 avenue du Rhône. 4,8 sur 5 d’après 156 avis Google.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="#1B1A18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B1A18'/%3E%3Ctext x='31' y='49' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23C79A62'%3E7%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Salon 7ème avenue",
+  "description": "Salon de coiffure mixte (femme, homme, enfant, barbe) à Annecy.",
+  "telephone": "+33749335319",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9 Av. du Rhône",
+    "postalCode": "74000",
+    "addressLocality": "Annecy",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.8992348, "longitude": 6.1172969 },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJU3dVXU-Fi0cROvv57VRnbc8",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "10:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "13:00", "closes": "18:00" }
+  ],
+  "sameAs": ["https://www.planity.com/salon-7eme-avenue-74000-annecy"]
+}
+</script>
+<style>
+/* ──────────────────────────────────────────────────────────────────────────
+   Salon 7ème avenue — design decisions
+   Palette  Taken from the salon itself: the anthracite shop sign and black walls (--brand),
+            warm paper like the pale floor tiles (--bg), and one accent, the light-oak slats
+            and gold disco balls (--accent). A darker oak (--accent-ink) when it has to be text on paper.
+   Type     Instrument Serif (roman + italic) for an editorial, fashion-salon voice that echoes the
+            flared lettering of the sign; Manrope 400/600 for body and UI, close to the window's sans.
+   Hero     Mobile: full-bleed interior (quilted barber chair, disco balls) under a dark scrim, copy at
+            the bottom over the chair. Desktop: split editorial, type on the black "shop sign" field,
+            photo bleeding off the right edge with a slow Ken Burns.
+   Rhythm   dark hero → paper proof with one oversized "4,8" → typographic price list → black salon
+            gallery → paper hours & map → oak booking block (the one strong colour move) → black footer.
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --bg: #F4F0E9;
+  --bg-alt: #EAE3D8;
+  --surface: #FBF9F5;
+  --ink: #171614;
+  --ink-soft: #5C564E;
+  --brand: #1B1A18;
+  --brand-ink: #F4F0E9;
+  --brand-soft: #B9B1A5;
+  --accent: #C79A62;
+  --accent-ink: #8A5A26;
+  --line: #D9D0C2;
+  --line-dark: rgba(244, 240, 233, .14);
+  --ok: #2E6B4B;
+  --ok-bright: #7FD1A0;
+
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --step--1: clamp(.875rem, .85rem + .12vw, .95rem);
+  --step-0: clamp(1.0625rem, 1.02rem + .2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + .45vw, 1.5rem);
+  --step-2: clamp(1.55rem, 1.3rem + 1vw, 2.1rem);
+  --step-3: clamp(2rem, 1.55rem + 2vw, 3.1rem);
+  --step-4: clamp(2.4rem, 1.7rem + 3.2vw, 4.2rem);
+  --step-5: clamp(2.9rem, 1.9rem + 4.6vw, 5.4rem);
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+  --section: clamp(56px, 10vw, 128px);
+  --gutter: clamp(16px, 5vw, 40px);
+
+  --r-sm: 8px; --r-md: 18px; --r-full: 999px;
+  --shadow-1: 0 1px 2px rgba(23, 22, 20, .06), 0 2px 8px rgba(23, 22, 20, .05);
+  --shadow-2: 0 2px 6px rgba(23, 22, 20, .06), 0 14px 34px -10px rgba(23, 22, 20, .18);
+  --shadow-3: 0 6px 14px rgba(0, 0, 0, .14), 0 34px 70px -24px rgba(0, 0, 0, .5);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  --header-h: 64px;
+  --bar-h: 0px;
+}
+@media (max-width: 767px) { :root { --bar-h: 64px; } }
+@media (min-width: 960px) { :root { --header-h: 76px; } }
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html.lock { overflow: hidden; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--font-body);
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom));
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+blockquote, figure { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+svg.i { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+section[id] { scroll-margin-top: var(--header-h); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+.container { width: 100%; max-width: calc(1200px + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.skip {
+  position: absolute; left: var(--space-4); top: var(--space-2); z-index: 100;
+  padding: var(--space-3) var(--space-5); background: var(--accent); color: var(--ink);
+  font-weight: 600; text-decoration: none; border-radius: var(--r-sm); transform: translateY(-160%);
+  transition: transform .25s var(--ease);
+}
+.skip:focus { transform: none; }
+.nowrap { white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.kicker {
+  display: flex; align-items: center; gap: var(--space-3);
+  font: 600 var(--step--1)/1.3 var(--font-body); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
+.on-dark .kicker { color: var(--accent); }
+.h2 { font-family: var(--font-display); font-size: var(--step-4); line-height: 1.04; letter-spacing: -.015em; }
+.h2 em { font-style: italic; color: var(--accent-ink); }
+.on-dark .h2 em { color: var(--accent); }
+.lead { color: var(--ink-soft); max-width: 60ch; }
+.on-dark { background: var(--brand); color: var(--brand-ink); }
+.on-dark .lead { color: var(--brand-soft); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+  min-height: 52px; padding: 0 1.4em; border-radius: var(--r-full);
+  font: 600 var(--step-0)/1.1 var(--font-body); text-decoration: none; white-space: nowrap;
+  border: 1.5px solid transparent;
+  transition: transform .25s var(--ease), background-color .25s var(--ease), box-shadow .25s var(--ease), color .25s var(--ease);
+}
+.btn:active { transform: translateY(1px) scale(.99); }
+.btn--accent { background: var(--accent); color: var(--ink); box-shadow: var(--shadow-1); }
+.btn--accent:hover { background: #D4AA75; box-shadow: var(--shadow-2); }
+.btn--ghost { border-color: rgba(244, 240, 233, .4); color: var(--brand-ink); }
+.btn--ghost:hover { background: rgba(244, 240, 233, .1); border-color: var(--brand-ink); }
+.btn--dark { background: var(--brand); color: var(--brand-ink); box-shadow: var(--shadow-2); }
+.btn--dark:hover { background: #000; }
+.btn--line { border-color: var(--ink); color: var(--ink); }
+.btn--line:hover { background: rgba(23, 22, 20, .08); }
+.btn--sm { min-height: 44px; padding: 0 1.1em; font-size: var(--step--1); }
+
+/* Header — the black shop sign */
+.header {
+  position: sticky; top: 0; z-index: 50; height: var(--header-h);
+  background: var(--brand); color: var(--brand-ink);
+  border-bottom: 1px solid var(--line-dark);
+}
+.header__inner { height: 100%; display: flex; align-items: center; gap: var(--space-3); }
+.brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; margin-right: auto; min-height: 44px; }
+.brand__mark { width: 40px; height: 40px; color: var(--accent); flex: none; }
+.brand__mark text { font-family: var(--font-display); }
+.brand__name { display: grid; line-height: 1; }
+.brand__name small { font: 600 10.5px/1 var(--font-body); letter-spacing: .26em; text-transform: uppercase; color: var(--brand-soft); margin-bottom: 4px; }
+.brand__name span { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.01em; }
+.brand__name sup { font-size: .5em; vertical-align: .9em; margin-left: 1px; }
+.nav { display: none; }
+.header__cta { display: none; }
+.burger { position: relative; width: 44px; height: 44px; border-radius: var(--r-full); margin-right: -10px; }
+.burger i { position: absolute; left: 11px; top: 21px; width: 22px; height: 1.5px; background: currentColor; transition: transform .3s var(--ease); }
+.burger i:first-child { transform: translateY(-4px); }
+.burger i:last-child { transform: translateY(4px); }
+.burger[aria-expanded="true"] i:first-child { transform: rotate(45deg); }
+.burger[aria-expanded="true"] i:last-child { transform: rotate(-45deg); }
+@media (min-width: 360px) { .header__cta { display: inline-flex; } }
+
+.menu {
+  position: fixed; inset: var(--header-h) 0 0 0; z-index: 49; display: none;
+  background: var(--brand); color: var(--brand-ink); overflow-y: auto;
+  padding: var(--space-5) var(--gutter) calc(var(--space-7) + env(safe-area-inset-bottom));
+}
+.menu.is-open { display: flex; flex-direction: column; animation: menuIn .35s var(--ease); }
+.menu a:not(.btn) {
+  display: flex; align-items: center; justify-content: space-between; min-height: 64px;
+  font-family: var(--font-display); font-size: var(--step-3); text-decoration: none;
+  border-bottom: 1px solid var(--line-dark);
+}
+.menu a:not(.btn) svg { color: var(--accent); }
+.menu__foot { margin-top: auto; padding-top: var(--space-6); display: grid; gap: var(--space-3); }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } }
+
+@media (min-width: 960px) {
+  .burger { display: none; }
+  .menu { display: none !important; }
+  .nav { display: flex; gap: var(--space-1); }
+  .nav a {
+    position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-3);
+    font-size: var(--step--1); font-weight: 600; letter-spacing: .02em; color: var(--brand-soft); text-decoration: none;
+    transition: color .2s var(--ease);
+  }
+  .nav a::after {
+    content: ""; position: absolute; left: var(--space-3); right: var(--space-3); bottom: 10px; height: 1px;
+    background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+  }
+  .nav a:hover, .nav a:focus-visible { color: var(--brand-ink); }
+  .nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); }
+  .header__cta { margin-left: var(--space-4); }
+}
+
+/* Hero */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: calc(100svh - var(--header-h) - var(--bar-h));
+  display: grid; align-items: end;
+}
+.hero__media { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: var(--brand); }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 36%; transform-origin: 60% 40%; }
+.hero__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(27, 26, 24, .12) 0%, rgba(27, 26, 24, .3) 24%, rgba(27, 26, 24, .84) 50%, #1B1A18 80%);
+}
+.hero__inner { padding-block: var(--space-8) var(--space-6); display: grid; justify-items: start; gap: var(--space-4); }
+.hero__title { font-family: var(--font-display); font-size: var(--step-5); line-height: 1.02; letter-spacing: -.02em; max-width: 13ch; }
+.hero__title .kicker { font-size: var(--step--1); letter-spacing: .1em; margin-bottom: var(--space-4); max-width: none; }
+.hero__title .kicker::before { width: 20px; }
+@media (max-width: 767px) { .hero__actions .btn--ghost { display: none; } }
+@media (min-width: 640px) { .hero__title { max-width: 15ch; } }
+.hero__title em { color: var(--accent); }
+.hero__lead { color: var(--brand-soft); max-width: 44ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-2); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: .55em; min-height: 44px; padding: 0 1em 0 .85em;
+  border-radius: var(--r-full); text-decoration: none; font-size: var(--step--1);
+  background: rgba(244, 240, 233, .08); border: 1px solid rgba(244, 240, 233, .22);
+  transition: background-color .25s var(--ease), border-color .25s var(--ease);
+}
+.chip:hover { background: rgba(244, 240, 233, .14); border-color: rgba(244, 240, 233, .4); }
+.chip strong { font-weight: 600; font-size: var(--step-0); }
+.chip .sep { opacity: .5; }
+.stars { display: inline-flex; gap: 2px; color: var(--accent); }
+.stars svg { width: 15px; height: 15px; fill: currentColor; }
+
+.status {
+  display: inline-flex; align-items: center; gap: .6em; min-height: 34px; padding: .25em .9em .25em .75em;
+  border-radius: var(--r-full); font-size: var(--step--1); font-weight: 600; line-height: 1.25;
+  background: rgba(244, 240, 233, .1); border: 1px solid rgba(244, 240, 233, .18);
+}
+.status__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-soft); flex: none; }
+.status.is-open .status__dot { background: var(--ok-bright); box-shadow: 0 0 0 4px rgba(127, 209, 160, .18); }
+.status.is-closed .status__dot { background: var(--accent); }
+.status--paper { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.status--paper.is-open .status__dot { background: var(--ok); box-shadow: 0 0 0 4px rgba(46, 107, 75, .14); }
+.status--paper.is-closed .status__dot { background: var(--accent-ink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__media img { animation: kenburns 26s var(--ease) infinite alternate; }
+  .status.is-open .status__dot { animation: pulse 2.4s ease-in-out infinite; }
+}
+@keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); } }
+@keyframes pulse { 50% { opacity: .45; } }
+
+@media (min-width: 960px) {
+  .hero { min-height: min(calc(100svh - var(--header-h)), 860px); align-items: center; }
+  .hero__media { left: auto; width: 46%; }
+  .hero__media img { object-position: 50% 66%; }
+  .hero__media::after { background: linear-gradient(90deg, #1B1A18 0%, rgba(27, 26, 24, .35) 14%, rgba(27, 26, 24, 0) 34%), linear-gradient(0deg, rgba(27, 26, 24, .35), rgba(27, 26, 24, 0) 30%); }
+  .hero__inner { padding-block: var(--space-8); }
+  .hero__inner > * { max-width: 620px; }
+  .hero__title { max-width: 15ch; font-size: clamp(3.6rem, 1.6rem + 3.6vw, 5.4rem); }
+  .hero__title .kicker::before { width: 28px; }
+}
+
+/* Proof */
+.proof { padding-block: var(--section); }
+.proof__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
+.proof__head { display: grid; gap: var(--space-5); align-content: start; }
+.score { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: var(--space-2) var(--space-5); }
+.score__num {
+  font-family: var(--font-display); font-size: clamp(7rem, 3.4rem + 17vw, 15rem); line-height: .78;
+  letter-spacing: -.045em; color: var(--ink); grid-row: span 2;
+}
+.score__num small { font-size: .22em; letter-spacing: 0; color: var(--ink-soft); margin-left: .1em; }
+.score .stars svg { width: 20px; height: 20px; }
+.score .stars { color: var(--accent-ink); }
+.score__meta { color: var(--ink-soft); font-size: var(--step--1); line-height: 1.45; }
+.score__meta b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; display: inline-block; min-width: 3ch; }
+.score__link { grid-column: 1 / -1; margin-top: var(--space-5); justify-self: start; }
+.pull {
+  font-family: var(--font-display); font-style: italic; font-size: var(--step-2); line-height: 1.22;
+  padding-left: var(--space-5); border-left: 2px solid var(--accent); max-width: 34ch;
+}
+.pull figcaption { font: 600 var(--step--1)/1.4 var(--font-body); font-style: normal; color: var(--ink-soft); margin-top: var(--space-3); }
+
+.rail-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-8); margin-bottom: var(--space-5); }
+.rail-head p { font-weight: 600; }
+.rail-btns { display: none; gap: var(--space-2); }
+.rail-btn {
+  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--surface); transition: border-color .2s var(--ease), opacity .2s var(--ease);
+}
+.rail-btn:hover { border-color: var(--ink); }
+.rail-btn[disabled] { opacity: .35; cursor: default; }
+@media (min-width: 640px) { .rail-btns { display: flex; } }
+.rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: var(--space-4);
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin-inline: calc(var(--gutter) * -1); padding: var(--space-1) var(--gutter) var(--space-5);
+  scroll-padding-inline: var(--gutter); scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+@media (min-width: 640px) { .rail { grid-auto-columns: 360px; gap: var(--space-5); } }
+.rail > li { scroll-snap-align: start; display: flex; }
+.review {
+  flex: 1; display: flex; flex-direction: column; gap: var(--space-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: var(--space-6) var(--space-5) var(--space-5); box-shadow: var(--shadow-1);
+}
+.review .stars { color: var(--accent-ink); }
+.review blockquote { flex: 1; }
+.review blockquote p { font-size: var(--step-0); line-height: 1.6; }
+.review figcaption { display: flex; align-items: center; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--line); font-size: var(--step--1); }
+.review figcaption strong { display: block; font-weight: 600; font-size: var(--step-0); }
+.review time { color: var(--ink-soft); }
+.avatar {
+  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  background: var(--brand); color: var(--accent); font: italic 1.35rem/1 var(--font-display); text-transform: uppercase;
+}
+
+@media (min-width: 960px) {
+  .proof__grid { grid-template-columns: repeat(12, 1fr); align-items: end; }
+  .score { grid-column: 1 / 6; grid-row: 1; }
+  .proof__head { grid-column: 6 / 13; grid-row: 1; }
+}
+
+/* Services */
+.services { background: var(--bg-alt); padding-block: var(--section); }
+.services__head { display: grid; gap: var(--space-5); margin-bottom: var(--space-8); }
+.services__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
+.services__side { display: grid; gap: var(--space-7); }
+.menu-group h3 {
+  font-family: var(--font-display); font-size: var(--step-2); line-height: 1.1;
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3);
+  padding-bottom: var(--space-4);
+}
+.menu-group h3 span { font: 600 var(--step--1)/1 var(--font-body); color: var(--ink-soft); letter-spacing: .02em; }
+.price {
+  display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: var(--space-4);
+  padding: var(--space-4) 0; border-top: 1px solid var(--line);
+}
+.price:last-child { border-bottom: 1px solid var(--line); }
+.price__name { font-weight: 600; line-height: 1.4; }
+.price__name small { display: block; font-weight: 400; font-size: var(--step--1); color: var(--ink-soft); margin-top: 2px; }
+.price__val { font-family: var(--font-display); font-size: var(--step-1); white-space: nowrap; text-align: right; }
+.price__val small { display: block; font: 400 var(--step--1)/1.2 var(--font-body); color: var(--ink-soft); }
+.menu-group--feature {
+  background: var(--surface); border-radius: var(--r-md); padding: var(--space-6) var(--space-5);
+  box-shadow: var(--shadow-2); margin-inline: calc(var(--space-2) * -1);
+}
+.menu-group--feature .price:last-child { border-bottom: 0; padding-bottom: 0; }
+.brands { margin-top: var(--space-5); font-size: var(--step--1); color: var(--ink-soft); }
+.brands strong { color: var(--ink); font-weight: 600; }
+.services__foot {
+  margin-top: var(--space-8); display: grid; gap: var(--space-5); align-items: center;
+  padding-top: var(--space-6); border-top: 1px solid var(--ink);
+}
+.services__foot p { color: var(--ink-soft); max-width: 56ch; }
+.services__foot .btn { justify-self: start; }
+@media (min-width: 960px) {
+  .services__head { grid-template-columns: repeat(12, 1fr); align-items: end; }
+  .services__head > div { grid-column: 1 / 8; display: grid; gap: var(--space-5); }
+  .services__head .lead { grid-column: 8 / 13; }
+  .services__grid { grid-template-columns: repeat(12, 1fr); align-items: start; gap: var(--space-6); }
+  .menu-group--feature { grid-column: 1 / 7; padding: var(--space-7) var(--space-6); margin: 0; }
+  .services__side { grid-column: 8 / 13; display: grid; gap: var(--space-7); }
+  .services__foot { grid-template-columns: 1fr auto; }
+}
+
+/* Salon + gallery */
+.salon { padding-block: var(--section); }
+.salon__head { display: grid; gap: var(--space-5); margin-bottom: var(--space-7); }
+.salon__text { display: grid; gap: var(--space-4); }
+.salon__text p { color: var(--brand-soft); }
+.salon__quote { font-family: var(--font-display); font-style: italic; font-size: var(--step-1); color: var(--brand-ink); line-height: 1.35; }
+.salon__quote span { display: block; font: 400 var(--step--1)/1.4 var(--font-body); font-style: normal; color: var(--brand-soft); margin-top: var(--space-2); }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.shot {
+  position: relative; display: block; width: 100%; overflow: hidden; border-radius: var(--r-md);
+  background: #2A2826; cursor: zoom-in;
+}
+.shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.shot:hover img { transform: scale(1.04); }
+.shot::after {
+  content: attr(data-label); position: absolute; left: var(--space-3); bottom: var(--space-3);
+  padding: .3em .75em; border-radius: var(--r-full); font-size: .8125rem; font-weight: 600;
+  background: rgba(27, 26, 24, .72); color: var(--brand-ink);
+}
+.shot--a { grid-column: 1 / -1; aspect-ratio: 4 / 5; }
+.shot--a img { object-position: 50% 62%; }
+.shot--b, .shot--c { aspect-ratio: 3 / 4; }
+.shot--c img { object-position: 60% 4%; }
+.shot--d { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+.shot--d img { object-position: 50% 33%; }
+.words {
+  display: flex; flex-wrap: wrap; gap: .1em .5em; margin-top: var(--space-8);
+  font-family: var(--font-display); font-size: var(--step-4); line-height: 1; letter-spacing: -.01em;
+}
+.words span:nth-of-type(even) { color: var(--accent); font-style: italic; }
+.words i { font-style: normal; color: var(--brand-soft); opacity: .5; }
+@media (min-width: 640px) {
+  .mosaic { grid-template-columns: repeat(12, 1fr); grid-auto-rows: clamp(160px, 22vw, 290px); gap: var(--space-4); }
+  .shot { aspect-ratio: auto; }
+  .shot--a { grid-column: 1 / 6; grid-row: span 2; }
+  .shot--b { grid-column: 6 / 9; }
+  .shot--c { grid-column: 9 / 13; }
+  .shot--d { grid-column: 6 / 13; }
+}
+@media (min-width: 960px) {
+  .salon__head { grid-template-columns: repeat(12, 1fr); align-items: end; }
+  .salon__head > div:first-child { grid-column: 1 / 7; display: grid; gap: var(--space-5); }
+  .salon__text { grid-column: 8 / 13; }
+}
+
+/* Lightbox */
+.lightbox {
+  width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0;
+  background: rgba(15, 14, 13, .96); color: var(--brand-ink);
+}
+.lightbox[open] { display: grid; place-items: center; animation: fadeIn .3s var(--ease); }
+.lightbox::backdrop { background: rgba(15, 14, 13, .8); }
+.lightbox figure { display: grid; gap: var(--space-3); justify-items: center; padding: 72px var(--gutter) 96px; max-height: 100%; }
+.lightbox img { max-width: min(100%, 980px); max-height: calc(100svh - 190px); width: auto; height: auto; object-fit: contain; border-radius: var(--r-sm); }
+.lightbox figcaption { font-size: var(--step--1); color: var(--brand-soft); text-align: center; }
+.lb-btn {
+  position: absolute; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%;
+  background: rgba(244, 240, 233, .1); border: 1px solid rgba(244, 240, 233, .2); transition: background-color .2s var(--ease);
+}
+.lb-btn:hover { background: rgba(244, 240, 233, .2); }
+.lb-close { top: var(--space-4); right: var(--space-4); }
+.lb-prev { left: var(--space-4); bottom: var(--space-5); }
+.lb-next { right: var(--space-4); bottom: var(--space-5); }
+@media (min-width: 960px) { .lb-prev, .lb-next { bottom: auto; top: 50%; transform: translateY(-50%); } }
+@keyframes fadeIn { from { opacity: 0; } }
+
+/* Hours & access */
+.visit { padding-block: var(--section); }
+.visit__head { display: grid; gap: var(--space-5); margin-bottom: var(--space-7); }
+.visit__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+.hours { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--space-5); box-shadow: var(--shadow-1); }
+.hours__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.hours__top h3 { font-family: var(--font-display); font-size: var(--step-2); }
+.hours table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours th, .hours td { padding: var(--space-3) var(--space-2); border-top: 1px solid var(--line); text-align: left; font-weight: 400; }
+.hours td { text-align: right; white-space: nowrap; }
+.hours tr.is-closed-day td { color: var(--ink-soft); }
+.hours tr.is-today { background: var(--brand); color: var(--brand-ink); }
+.hours tr.is-today th, .hours tr.is-today td { border-top-color: transparent; font-weight: 600; color: var(--brand-ink); }
+.hours tr.is-today th:first-child { border-radius: var(--r-sm) 0 0 var(--r-sm); }
+.hours tr.is-today td:last-child { border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.hours tr.is-today + tr th, .hours tr.is-today + tr td { border-top-color: transparent; }
+.today-tag { display: none; margin-left: .5em; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.is-today .today-tag { display: inline; }
+@media (max-width: 399px) { .hours { padding: var(--space-4); } .hours th, .hours td { padding-inline: var(--space-1); } }
+.hours__note { margin-top: var(--space-4); font-size: var(--step--1); color: var(--ink-soft); }
+.map { display: grid; gap: var(--space-3); }
+.map iframe { width: 100%; aspect-ratio: 4 / 3.4; border: 0; border-radius: var(--r-md); background: var(--bg-alt); box-shadow: var(--shadow-2); }
+.map p { font-size: var(--step--1); color: var(--ink-soft); }
+.address { display: grid; gap: var(--space-5); align-content: start; }
+.address h3 { font-family: var(--font-display); font-size: var(--step-3); line-height: 1.05; }
+.address__btns { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.facts li { display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3) 0; border-bottom: 1px solid var(--line); font-size: var(--step--1); line-height: 1.5; }
+.facts svg { color: var(--accent-ink); margin-top: 1px; }
+@media (min-width: 960px) {
+  .visit__head { grid-template-columns: repeat(12, 1fr); align-items: end; }
+  .visit__head > div { grid-column: 1 / 8; display: grid; gap: var(--space-5); }
+  .visit__grid { grid-template-columns: repeat(12, 1fr); gap: var(--space-6); align-items: start; }
+  .hours { grid-column: 1 / 6; padding: var(--space-6); }
+  .map { grid-column: 6 / 13; grid-row: span 2; align-self: stretch; display: flex; flex-direction: column; }
+  .map iframe { aspect-ratio: auto; flex: 1; min-height: 480px; }
+  .address { grid-column: 1 / 6; }
+}
+
+/* Booking block — the oak colour move */
+.book { background: var(--accent); color: var(--ink); padding-block: var(--section); overflow: hidden; }
+.book__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
+.book .kicker { color: var(--ink); }
+.book .h2 em { color: var(--ink); }
+.book__text { display: grid; gap: var(--space-5); align-content: center; }
+.book__text > p { max-width: 46ch; }
+.phone-big {
+  display: inline-flex; align-items: center; gap: var(--space-3); justify-self: start;
+  font-family: var(--font-display); font-size: clamp(2.2rem, 1.4rem + 4vw, 4.4rem); line-height: 1.1;
+  letter-spacing: -.01em; text-decoration: none; border-bottom: 1.5px solid currentColor; min-height: 48px;
+  font-variant-numeric: lining-nums;
+}
+.phone-big:hover { border-bottom-color: transparent; }
+.book__btns { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.book__photo { position: relative; border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow-3); aspect-ratio: 4 / 3; }
+.book__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
+.book__photo figcaption {
+  position: absolute; left: var(--space-3); bottom: var(--space-3); padding: .35em .8em; border-radius: var(--r-full);
+  font-size: .8125rem; font-weight: 600; background: rgba(27, 26, 24, .78); color: var(--brand-ink);
+}
+@media (min-width: 960px) {
+  .book__grid { grid-template-columns: repeat(12, 1fr); align-items: center; }
+  .book__text { grid-column: 1 / 7; }
+  .book__photo { grid-column: 8 / 13; aspect-ratio: 1; }
+  .book__photo img { object-position: 50% 62%; }
+}
+
+/* Footer */
+.footer { padding-block: var(--space-8) var(--space-6); }
+.footer__grid { display: grid; gap: var(--space-6); padding-bottom: var(--space-7); border-bottom: 1px solid var(--line-dark); }
+.footer h2 { font: 600 var(--step--1)/1.3 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3); }
+.footer p, .footer li { color: var(--brand-soft); font-size: var(--step--1); line-height: 1.6; }
+.footer__links a { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; text-decoration: none; color: var(--brand-ink); font-size: var(--step--1); }
+.footer__links a:hover { color: var(--accent); }
+.footer__brand p { margin-top: var(--space-4); max-width: 34ch; }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-5); font-size: var(--step--1); color: var(--brand-soft); }
+@media (min-width: 640px) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+@media (min-width: 960px) { .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* Sticky mobile action bar */
+.actionbar { display: none; }
+@media (max-width: 767px) {
+  .actionbar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: repeat(3, 1fr);
+    background: var(--brand); color: var(--brand-ink); border-top: 1px solid var(--line-dark);
+    padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -10px 30px rgba(0, 0, 0, .18);
+  }
+  .actionbar a {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    height: var(--bar-h); font-size: .8125rem; font-weight: 600; text-decoration: none; letter-spacing: .02em;
+  }
+  .actionbar a + a { border-left: 1px solid var(--line-dark); }
+  .actionbar svg { color: var(--accent); }
+  .actionbar a:active { background: rgba(244, 240, 233, .08); }
+}
+
+/* Reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .js .reveal.is-in { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+<!--sf:preview--><meta name="robots" content="noindex, nofollow"><!--/sf:preview-->
+<!--sf:og--><meta property="og:image" content="https://salon-7eme-avenue-annecy.aymenjallouli.dev/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://salon-7eme-avenue-annecy.aymenjallouli.dev/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://salon-7eme-avenue-annecy.aymenjallouli.dev/og.jpg"><!--/sf:og-->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M21.5 16.6v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.6 3.8 2 2 0 0 1 3.6 1.6h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L7.5 9.4a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2.2z"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path d="M21 14.5a2 2 0 0 1-2 2H8l-5 4.5V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M3 11 21 3l-8 18-2-8z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="#top" aria-label="Salon 7ème avenue, retour en haut de page">
+      <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
+        <rect x=".75" y=".75" width="42.5" height="42.5" rx="9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="19" y="34" text-anchor="middle" font-size="31" font-style="italic" fill="currentColor">7</text>
+        <text x="31" y="15" text-anchor="middle" font-size="8" fill="currentColor">ème</text>
+      </svg>
+      <span class="brand__name"><small>Salon</small><span>7<sup>ème</sup> avenue</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#avis">Avis</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#salon">Le salon</a>
+      <a href="#horaires">Horaires &amp; accès</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--accent btn--sm header__cta" href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener">Réserver</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+      <i aria-hidden="true"></i><i aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <nav aria-label="Menu mobile">
+    <a href="#avis">Avis <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#prestations">Prestations &amp; tarifs <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#salon">Le salon <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#horaires">Horaires &amp; accès <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#contact">Contact <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--accent" href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Réserver sur Planity</a>
+    <a class="btn btn--ghost" href="tel:+33749335319"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>07 49 33 53 19</a>
+  </div>
+</div>
+
+<main id="contenu">
+  <!-- Hero -->
+  <section class="hero on-dark" id="top" aria-labelledby="hero-title">
+    <div class="hero__media">
+      <img src="assets/photos/photo-01.jpg" width="900" height="1600" fetchpriority="high"
+           alt="Fauteuil barbier noir capitonné au premier plan, bacs à shampoing et boules à facettes au plafond du Salon 7ème avenue">
+    </div>
+    <div class="container hero__inner">
+      <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Mar.–sam. 10h–19h · dim. 13h–18h</span></p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="kicker">Salon 7ème avenue · Annecy</span>
+        La couleur comme vous la vouliez. <em>Même le dimanche.</em>
+      </h1>
+      <a class="chip" href="https://www.google.com/maps/place/?q=place_id:ChIJU3dVXU-Fi0cROvv57VRnbc8" target="_blank" rel="noopener" aria-label="Note Google : 4,8 sur 5, 156 avis. Voir les avis sur Google">
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <strong>4,8</strong><span class="sep">·</span><span>156 avis Google</span>
+      </a>
+      <p class="hero__lead">Coupe aux ciseaux, coloration L’Oréal ou végétale, brushing soigné. Femme, homme, enfant et barbe, au 9 avenue du Rhône.</p>
+      <div class="hero__actions">
+        <a class="btn btn--accent" href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Réserver sur Planity</a>
+        <a class="btn btn--ghost" href="tel:+33749335319"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Appeler</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof" id="avis" aria-labelledby="avis-title">
+    <div class="container">
+      <div class="proof__grid">
+        <div class="proof__head reveal">
+          <p class="kicker">Avis Google</p>
+          <h2 class="h2" id="avis-title">On vient pour une couleur. <em>On revient pour l’écoute.</em></h2>
+          <figure class="pull">
+            <blockquote><p>«&nbsp;… Il maîtrise parfaitement les cheveux, notamment la coupe aux ciseaux, avec un résultat très naturel. La couleur est superbe, exactement comme je le souhaitais.&nbsp;»</p></blockquote>
+            <figcaption>Kelt R., à propos de Walid · 5 étoiles · décembre 2025</figcaption>
+          </figure>
+        </div>
+        <div class="score reveal">
+          <p class="score__num" aria-label="Note moyenne 4,8 sur 5">4,8<small>/5</small></p>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="score__meta">Note moyenne sur Google,<br>d’après <b data-count="156">156</b> avis</p>
+          <a class="btn btn--line score__link" href="https://www.google.com/maps/place/?q=place_id:ChIJU3dVXU-Fi0cROvv57VRnbc8" target="_blank" rel="noopener">Voir les 156 avis sur Google <svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+        </div>
+      </div>
+
+      <div class="rail-head">
+        <p>Derniers avis</p>
+        <div class="rail-btns">
+          <button class="rail-btn" type="button" data-rail-prev aria-label="Avis précédents"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+          <button class="rail-btn" type="button" data-rail-next aria-label="Avis suivants"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <ul class="rail reveal" data-rail tabindex="0" aria-label="Avis Google, faites défiler horizontalement">
+        <li>
+          <figure class="review">
+            <span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <blockquote><p>«&nbsp;… Walid a des doigts de fées&nbsp;! Je recommande les yeux fermés. De plus j’ai eu tous les conseils dont j’avais besoin. Coiffeur à l’écoute et très professionnel. Je suis toujours contente de ma coupe avec un brushing de star en bonus&nbsp;! …&nbsp;»</p></blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">c</span><span><strong>charlène V.</strong><time datetime="2026-06-02">juin 2026</time></span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="review">
+            <span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <blockquote><p>«&nbsp;… La couleur est exactement comme je la voulais, la coupe est parfaite et le brushing est tout simplement magnifique. L’équipe est professionnelle, à l’écoute et très agréable. Un vrai moment de détente …&nbsp;»</p></blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">A</span><span><strong>Amela M.</strong><time datetime="2026-01-22">janvier 2026</time></span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="review">
+            <span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <blockquote><p>«&nbsp;Une première expérience dans ce salon et déjà un vrai coup de cœur&nbsp;! Après avoir testé plusieurs adresses, j’ai enfin trouvé un endroit où je me sens en confiance …&nbsp;»</p></blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">M</span><span><strong>Morgane D.</strong><time datetime="2026-04-03">avril 2026</time></span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="review">
+            <span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <blockquote><p>«&nbsp;1 er passage chez ce coiffeur pour des mèches, très contente de l'accueil de Jade et Walid. Super contente de ma coupe et de mes mèches. Merci à eux&nbsp;»</p></blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">N</span><span><strong>Nelly S.</strong><time datetime="2026-04-09">avril 2026</time></span></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="prestations" aria-labelledby="prestations-title">
+    <div class="container">
+      <div class="services__head reveal">
+        <div>
+          <p class="kicker">Prestations &amp; tarifs</p>
+          <h2 class="h2" id="prestations-title">Du balayage au <em>« brushing de star »</em>.</h2>
+        </div>
+        <p class="lead">Les tarifs publiés par le salon sur Planity. Femme, homme, enfant et barbe : tout se fait sur place, avenue du Rhône.</p>
+      </div>
+
+      <div class="services__grid">
+        <div class="menu-group menu-group--feature reveal">
+          <h3>Couleur <span>5 prestations</span></h3>
+          <ul>
+            <li class="price"><span class="price__name">Coloration L’Oréal<small>Racines + coiffage</small></span><span class="price__val">65&nbsp;€ – 75&nbsp;€</span></li>
+            <li class="price"><span class="price__name">Coloration L’Oréal<small>Racines + coupe et coiffage</small></span><span class="price__val">70&nbsp;€ – 80&nbsp;€</span></li>
+            <li class="price"><span class="price__name">Coloration végétale<small>Racines + coiffage</small></span><span class="price__val">60&nbsp;€ – 70&nbsp;€</span></li>
+            <li class="price"><span class="price__name">Coloration végétale<small>Racines + coupe et coiffage</small></span><span class="price__val">65&nbsp;€ – 75&nbsp;€</span></li>
+            <li class="price"><span class="price__name">Mèches / balayage</span><span class="price__val"><small>à partir de</small>90&nbsp;€ – 130&nbsp;€</span></li>
+          </ul>
+          <p class="brands"><strong>L’Oréal Professionnel</strong> : INOA, Majirel, Dia Color, Dia Light. Coloration sans ammoniaque ou coloration végétale, au choix.</p>
+        </div>
+
+        <div class="services__side">
+          <div class="menu-group reveal">
+            <h3>Coupe &amp; brushing femme</h3>
+            <ul>
+              <li class="price"><span class="price__name">Shampoing, soin, brushing<small>Court à très long, 30–60 min</small></span><span class="price__val">35&nbsp;€ – 60&nbsp;€</span></li>
+              <li class="price"><span class="price__name">Coupe avec coiffage<small>Court à très long, 35–60 min</small></span><span class="price__val">40&nbsp;€ – 65&nbsp;€</span></li>
+              <li class="price"><span class="price__name">Coupe à sec, cheveux courts<small>15 min</small></span><span class="price__val">25&nbsp;€</span></li>
+            </ul>
+          </div>
+          <div class="menu-group reveal">
+            <h3>Homme, enfant &amp; barbe</h3>
+            <ul>
+              <li class="price"><span class="price__name">Coupe homme<small>30 min</small></span><span class="price__val">23&nbsp;€ – 25&nbsp;€</span></li>
+              <li class="price"><span class="price__name">Taille / entretien de barbe<small>20–40 min</small></span><span class="price__val">15&nbsp;€ – 35&nbsp;€</span></li>
+              <li class="price"><span class="price__name">Coupe enfant<small>Garçon / fille</small></span><span class="price__val">20&nbsp;€ – 35&nbsp;€</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="services__foot reveal">
+        <p>Également au salon : coupes étudiants et soins nourrissants. Créneaux et détail des prestations sur Planity.</p>
+        <a class="btn btn--dark" href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Choisir un créneau</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Salon -->
+  <section class="salon on-dark" id="salon" aria-labelledby="salon-title">
+    <div class="container">
+      <div class="salon__head">
+        <div class="reveal">
+          <p class="kicker">Le salon</p>
+          <h2 class="h2" id="salon-title">Cuir capitonné, bois clair <em>et boules à facettes.</em></h2>
+        </div>
+        <div class="salon__text reveal">
+          <p>Le salon est tenu par Walid, avec Karam dans l’équipe. Murs noirs, lames de bois clair, fauteuils barbier capitonnés : un décor contemporain pensé pour le confort, le temps d’une couleur ou d’une taille de barbe.</p>
+          <p class="salon__quote">Walid, «&nbsp;talentueux et d’une bonne humeur débordante&nbsp;»<span>selon la présentation du salon sur Planity</span></p>
+        </div>
+      </div>
+
+      <div class="mosaic reveal">
+        <button class="shot shot--a" type="button" data-label="L’espace coiffure" aria-label="Agrandir la photo : l’espace coiffure">
+          <img src="assets/photos/photo-05.jpg" width="900" height="1600" loading="lazy" decoding="async"
+               alt="Postes de coiffure alignés devant des miroirs noirs encadrés de lames de bois clair, boules à facettes au plafond">
+        </button>
+        <button class="shot shot--b" type="button" data-label="Les bacs" aria-label="Agrandir la photo : les bacs à shampoing">
+          <img src="assets/photos/photo-04.jpg" width="900" height="1600" loading="lazy" decoding="async"
+               alt="Bacs à shampoing blancs le long d’un mur en lames de bois, tableau de chevaux, fauteuils noirs vers la vitrine">
+        </button>
+        <button class="shot shot--c" type="button" data-label="Mèches &amp; balayage" aria-label="Agrandir la photo : mèches et balayage">
+          <img src="assets/photos/photo-08.jpg" width="720" height="1600" loading="lazy" decoding="async"
+               alt="Gros plan sur une frange balayée, du châtain aux pointes blondes">
+        </button>
+        <button class="shot shot--d" type="button" data-label="La vitrine, avenue du Rhône" aria-label="Agrandir la photo : la vitrine sur l’avenue du Rhône">
+          <img src="assets/photos/photo-03.jpg" width="900" height="1600" loading="lazy" decoding="async"
+               alt="Façade du Salon 7ème avenue au soleil : enseigne noire, vitrine « Femme – Homme – Enfant »">
+        </button>
+      </div>
+
+      <p class="words reveal" aria-label="Femme, homme, enfant, barbe">
+        <span>Femme</span><i aria-hidden="true">/</i><span>Homme</span><i aria-hidden="true">/</i><span>Enfant</span><i aria-hidden="true">/</i><span>Barbe</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Hours & access -->
+  <section class="visit" id="horaires" aria-labelledby="horaires-title">
+    <div class="container">
+      <div class="visit__head reveal">
+        <div>
+          <p class="kicker">Horaires &amp; accès</p>
+          <h2 class="h2" id="horaires-title">Six jours sur sept, <em>dimanche <span class="nowrap">après-midi</span> compris.</em></h2>
+        </div>
+      </div>
+
+      <div class="visit__grid">
+        <div class="hours reveal">
+          <div class="hours__top">
+            <h3>Horaires</h3>
+            <p class="status status--paper" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Fermé le lundi</span></p>
+          </div>
+          <table>
+            <caption class="sr-only">Horaires d’ouverture du Salon 7ème avenue</caption>
+            <tbody>
+              <tr data-day="lundi" class="is-closed-day"><th scope="row">Lundi<span class="today-tag">Aujourd’hui</span></th><td>Fermé</td></tr>
+              <tr data-day="mardi"><th scope="row">Mardi<span class="today-tag">Aujourd’hui</span></th><td>10h – 19h</td></tr>
+              <tr data-day="mercredi"><th scope="row">Mercredi<span class="today-tag">Aujourd’hui</span></th><td>10h – 19h</td></tr>
+              <tr data-day="jeudi"><th scope="row">Jeudi<span class="today-tag">Aujourd’hui</span></th><td>10h – 19h</td></tr>
+              <tr data-day="vendredi"><th scope="row">Vendredi<span class="today-tag">Aujourd’hui</span></th><td>10h – 19h</td></tr>
+              <tr data-day="samedi"><th scope="row">Samedi<span class="today-tag">Aujourd’hui</span></th><td>10h – 19h</td></tr>
+              <tr data-day="dimanche"><th scope="row">Dimanche<span class="today-tag">Aujourd’hui</span></th><td>13h – 18h</td></tr>
+            </tbody>
+          </table>
+          <p class="hours__note">Rendez-vous recommandés, en ligne sur Planity ou par téléphone.</p>
+        </div>
+
+        <div class="map reveal">
+          <iframe src="https://www.google.com/maps?q=Salon%207%C3%A8me%20avenue%2C%209%20Av.%20du%20Rh%C3%B4ne%2C%2074000%20Annecy&amp;output=embed"
+                  title="Carte : Salon 7ème avenue, 9 avenue du Rhône, Annecy" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <p>La carte ne s’affiche pas ? <a href="https://www.google.com/maps/place/?q=place_id:ChIJU3dVXU-Fi0cROvv57VRnbc8" target="_blank" rel="noopener">Ouvrir le salon dans Google Maps</a>.</p>
+        </div>
+
+        <div class="address reveal">
+          <h3>9 Av. du Rhône,<br>74000 Annecy</h3>
+          <div class="address__btns">
+            <a class="btn btn--dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Salon%207%C3%A8me%20avenue%2C%209%20Av.%20du%20Rh%C3%B4ne%2C%2074000%20Annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Itinéraire</a>
+            <a class="btn btn--line" href="tel:+33749335319"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>07 49 33 53 19</a>
+          </div>
+          <ul class="facts" aria-label="Bon à savoir">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Entrée et parking accessibles en fauteuil roulant</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Adapté aux enfants</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Cartes bancaires et paiement mobile sans contact</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Toilettes sur place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking / contact -->
+  <section class="book" id="contact" aria-labelledby="contact-title">
+    <div class="container book__grid">
+      <div class="book__text reveal">
+        <p class="kicker">Rendez-vous recommandés</p>
+        <h2 class="h2" id="contact-title">Réservez en ligne, <em>ou appelez le salon.</em></h2>
+        <p>Choisissez votre prestation et votre créneau sur Planity. Vous préférez parler à quelqu’un ? Appelez, ou envoyez un SMS si vous ne pouvez pas téléphoner.</p>
+        <a class="phone-big" href="tel:+33749335319"><span class="sr-only">Appeler le </span>07 49 33 53 19</a>
+        <div class="book__btns">
+          <a class="btn btn--dark" href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Réserver sur Planity</a>
+          <a class="btn btn--line" href="sms:+33749335319?&amp;body=Bonjour%2C%20je%20souhaiterais%20prendre%20rendez-vous%20au%20Salon%207%C3%A8me%20avenue.%20Quelles%20sont%20vos%20disponibilit%C3%A9s%20%3F%20Merci."><svg class="i" aria-hidden="true"><use href="#i-sms"/></svg>Envoyer un SMS</a>
+        </div>
+      </div>
+      <figure class="book__photo reveal">
+        <img src="assets/photos/photo-09.jpg" width="1200" height="1600" loading="lazy" decoding="async"
+             alt="Vitrine du Salon 7ème avenue de face : enseigne noire « Salon 7ème Avenue, coiffure mixte », intérieur éclairé">
+        <figcaption>Au 9, avenue du Rhône</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer class="footer on-dark">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Salon 7ème avenue, retour en haut de page">
+          <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
+            <rect x=".75" y=".75" width="42.5" height="42.5" rx="9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <text x="19" y="34" text-anchor="middle" font-size="31" font-style="italic" fill="currentColor">7</text>
+            <text x="31" y="15" text-anchor="middle" font-size="8" fill="currentColor">ème</text>
+          </svg>
+          <span class="brand__name"><small>Salon</small><span>7<sup>ème</sup> avenue</span></span>
+        </a>
+        <p>Salon de coiffure mixte à Annecy : femme, homme, enfant et barbe.</p>
+      </div>
+      <div>
+        <h2>Adresse</h2>
+        <p>9 Av. du Rhône<br>74000 Annecy</p>
+        <ul class="footer__links">
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Salon%207%C3%A8me%20avenue%2C%209%20Av.%20du%20Rh%C3%B4ne%2C%2074000%20Annecy" target="_blank" rel="noopener">Itinéraire <svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul class="footer__links">
+          <li><a href="tel:+33749335319">07 49 33 53 19</a></li>
+          <li><a href="https://www.planity.com/salon-7eme-avenue-74000-annecy" target="_blank" rel="noopener">Réserver sur Planity <svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></li>
+          <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJU3dVXU-Fi0cROvv57VRnbc8" target="_blank" rel="noopener">Avis Google <svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Horaires</h2>
+        <p>Mardi – samedi : 10h – 19h<br>Dimanche : 13h – 18h<br>Lundi : fermé</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span data-year></span> Salon 7ème avenue</p>
+      <p>Coiffure mixte · Annecy</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Actions rapides">
+  <a href="tel:+33749335319"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Appeler</a>
+  <a href="sms:+33749335319?&amp;body=Bonjour%2C%20je%20souhaiterais%20prendre%20rendez-vous%20au%20Salon%207%C3%A8me%20avenue.%20Quelles%20sont%20vos%20disponibilit%C3%A9s%20%3F%20Merci."><svg class="i" aria-hidden="true"><use href="#i-sms"/></svg>SMS</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Salon%207%C3%A8me%20avenue%2C%209%20Av.%20du%20Rh%C3%B4ne%2C%2074000%20Annecy" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Itinéraire</a>
+</nav>
+
+<dialog class="lightbox" aria-label="Photos du salon">
+  <figure><img alt=""><figcaption aria-live="polite"></figcaption></figure>
+  <button class="lb-btn lb-close" type="button" aria-label="Fermer"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Photo précédente"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+  <button class="lb-btn lb-next" type="button" aria-label="Photo suivante"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg></button>
+</dialog>
+
+<script>
+(() => {
+  const d = document, root = d.documentElement;
+  root.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = 'IntersectionObserver' in window;
+
+  d.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+  /* Menu */
+  const burger = d.querySelector('.burger'), menu = d.getElementById('menu');
+  const setMenu = open => {
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    menu.classList.toggle('is-open', open);
+    root.classList.toggle('lock', open);
+    if (open) menu.querySelector('a').focus();
+  };
+  burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  d.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); }
+  });
+  matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* Hours + live status (Europe/Paris time) */
+  const HOURS = { lundi: 'Fermé', mardi: '10:00–19:00', mercredi: '10:00–19:00', jeudi: '10:00–19:00', vendredi: '10:00–19:00', samedi: '10:00–19:00', dimanche: '13:00–18:00' };
+  const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  const parse = s => {
+    s = String(s || '').toLowerCase();
+    if (!s || s.includes('ferm')) return [];
+    if (/24\s*h|24\/24|24 heures/.test(s)) return [[0, 1440]];
+    const out = [];
+    for (const m of s.matchAll(/(\d{1,2})\s*[:h.]?\s*(\d{2})?\s*[–—-]\s*(\d{1,2})\s*[:h.]?\s*(\d{2})?/g)) {
+      const a = +m[1] * 60 + (+m[2] || 0);
+      let b = +m[3] * 60 + (+m[4] || 0);
+      if (b <= a) b += 1440;
+      out.push([a, b]);
+    }
+    return out.sort((x, y) => x[0] - y[0]);
+  };
+  const fmt = m => { m %= 1440; const h = Math.floor(m / 60), mn = m % 60; return h + 'h' + (mn ? String(mn).padStart(2, '0') : ''); };
+  const now = () => {
+    const p = {};
+    try {
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+        .formatToParts(new Date()).forEach(x => { p[x.type] = x.value; });
+      return { day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), min: (+p.hour % 24) * 60 + +p.minute };
+    } catch (e) { const t = new Date(); return { day: t.getDay(), min: t.getHours() * 60 + t.getMinutes() }; }
+  };
+  const status = ({ day, min }) => {
+    const today = parse(HOURS[DAYS[day]]), prev = parse(HOURS[DAYS[(day + 6) % 7]]);
+    for (const [a, b] of prev) if (b > 1440 && min < b - 1440) return [true, 'Ouvert maintenant · jusqu’à ' + fmt(b)];
+    for (const [a, b] of today) if (min >= a && min < b) return [true, b - a >= 1440 ? 'Ouvert maintenant · 24h/24' : 'Ouvert maintenant · jusqu’à ' + fmt(b)];
+    for (let i = 0; i < 8; i++) {
+      const dd = (day + i) % 7;
+      for (const [a] of parse(HOURS[DAYS[dd]])) {
+        if (i === 0 && a <= min) continue;
+        return [false, 'Fermé · ouvre ' + (i === 0 ? '' : i === 1 ? 'demain ' : DAYS[dd] + ' ') + 'à ' + fmt(a)];
+      }
+    }
+    return [false, 'Fermé'];
+  };
+  const tick = () => {
+    const t = now(), [open, text] = status(t);
+    d.querySelectorAll('[data-status]').forEach(el => {
+      el.classList.toggle('is-open', open);
+      el.classList.toggle('is-closed', !open);
+      el.querySelector('[data-status-text]').textContent = text;
+    });
+    d.querySelectorAll('tr[data-day]').forEach(tr => {
+      const on = tr.dataset.day === DAYS[t.day];
+      tr.classList.toggle('is-today', on);
+      on ? tr.setAttribute('aria-current', 'date') : tr.removeAttribute('aria-current');
+    });
+  };
+  tick();
+  setInterval(tick, 60000);
+
+  /* Scroll reveals */
+  const reveals = d.querySelectorAll('.reveal');
+  if (io && !reduce) {
+    const ro = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); ro.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -6% 0px', threshold: .06 });
+    reveals.forEach(el => ro.observe(el));
+  } else reveals.forEach(el => el.classList.add('is-in'));
+
+  /* Count-up on the review count */
+  const counter = d.querySelector('[data-count]');
+  if (counter && io && !reduce) {
+    const target = +counter.dataset.count;
+    const co = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      co.disconnect();
+      const t0 = performance.now();
+      const step = t => {
+        const p = Math.min(1, (t - t0) / 1400);
+        counter.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, { threshold: .8 });
+    co.observe(counter);
+  }
+
+  /* Review rail */
+  const rail = d.querySelector('[data-rail]');
+  if (rail) {
+    const prev = d.querySelector('[data-rail-prev]'), next = d.querySelector('[data-rail-next]');
+    const by = dir => {
+      const card = rail.querySelector('li');
+      rail.scrollBy({ left: dir * (card.offsetWidth + 24), behavior: reduce ? 'auto' : 'smooth' });
+    };
+    const sync = () => {
+      prev.disabled = rail.scrollLeft < 8;
+      next.disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 8;
+    };
+    prev.addEventListener('click', () => by(-1));
+    next.addEventListener('click', () => by(1));
+    rail.addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync);
+    sync();
+  }
+
+  /* Gallery lightbox */
+  const lb = d.querySelector('.lightbox'), shots = [...d.querySelectorAll('.shot')];
+  if (lb && shots.length && lb.showModal) {
+    const img = lb.querySelector('img'), cap = lb.querySelector('figcaption');
+    let idx = 0;
+    const show = i => {
+      idx = (i + shots.length) % shots.length;
+      const src = shots[idx].querySelector('img');
+      img.src = src.getAttribute('src');
+      img.alt = src.alt;
+      cap.textContent = shots[idx].dataset.label + ' · ' + (idx + 1) + ' / ' + shots.length;
+    };
+    shots.forEach((s, i) => s.addEventListener('click', () => { show(i); lb.showModal(); root.classList.add('lock'); }));
+    lb.addEventListener('close', () => { root.classList.remove('lock'); shots[idx].focus(); });
+    lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+    lb.querySelector('.lb-prev').addEventListener('click', () => show(idx - 1));
+    lb.querySelector('.lb-next').addEventListener('click', () => show(idx + 1));
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
+    lb.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    let x0 = null;
+    lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+  }
+})();
+</script>
+<!--sf:preview--><div style="padding:18px 16px;font:13px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;background:#0f0f10;color:#a3a3a8">Aperçu réalisé par Aymen Jallouli pour Salon 7ème avenue : ce site n'est pas encore le site officiel de l'établissement.</div><!--/sf:preview-->
+<!--sf:track--><script>(function(){try{var q=new URLSearchParams(location.search),r=q.get('r')||sessionStorage.getItem('sf_r');if(!r)return;sessionStorage.setItem('sf_r',r);navigator.sendBeacon("https://track.aymenjallouli.dev/t"+'?r='+encodeURIComponent(r)+'&p='+encodeURIComponent(location.pathname));}catch(e){}})();</script><!--/sf:track-->
+</body>
+</html>
